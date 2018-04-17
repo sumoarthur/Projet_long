@@ -1,6 +1,6 @@
 format 217
 "UML_projetlong"
-  revision 3
+  revision 4
   modified_by 2 "quince-art"
 
 
@@ -66,6 +66,14 @@ format 217
       overlapping_bars size A1
     end
 
+    classinstance 134658 ""
+      type class_ref 134530 // Vue_connection
+      attributes
+        end
+      relations
+        end
+    end
+
     class 134530 "Vue_connection"
       visibility package 
       cpp_decl ""
@@ -89,14 +97,6 @@ ${docstring}${body}
 "
 	
       end
-    end
-
-    classinstance 134658 ""
-      type class_ref 134530 // Vue_connection
-      attributes
-        end
-      relations
-        end
     end
 
     class 134658 "Controleur"
@@ -158,6 +158,18 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 143362 "resultat_exercice"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
     end
 
     classinstance 134786 ""
@@ -203,6 +215,30 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 143490 "resultatExercice"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 144130 "suppressionDeLaTacheEffectué"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
     end
 
     classinstance 134914 ""
@@ -238,14 +274,6 @@ ${docstring}${body}
       end
     end
 
-    classinstance 135042 ""
-      type class_ref 134914 // Charge_data_user
-      attributes
-        end
-      relations
-        end
-    end
-
     class 135042 "user"
       visibility package 
       cpp_decl ""
@@ -258,6 +286,14 @@ ${docstring}${members}
       explicit_switch_type ""
       mysql_decl ""
       
+    end
+
+    classinstance 135042 ""
+      type class_ref 134914 // Charge_data_user
+      attributes
+        end
+      relations
+        end
     end
 
     classinstance 135170 ""
@@ -303,6 +339,31 @@ ${docstring}${body}
 "
 	
       end
+
+      operation 142722 "determination_exercice()"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 143874 "selectionCognitive"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+
     end
 
     classinstance 135298 ""
@@ -400,6 +461,183 @@ ${docstring}${members}
 
     classinstance 135682 ""
       type class_ref 135554 // Vue_exercice_ou_lecon
+      attributes
+        end
+      relations
+        end
+    end
+
+    class 142082 "GapheDeConnnaisance"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 143106 "selectionDesNotionNonMatrisé"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    classinstance 142210 ""
+      type class_ref 142082 // GapheDeConnnaisance
+      attributes
+        end
+      relations
+        end
+    end
+
+    class 142210 "Preference"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 142978 "miseAJourDesPreference"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    classinstance 142338 ""
+      type class_ref 142210 // Preference
+      attributes
+        end
+      relations
+        end
+    end
+
+    class 142338 "Resultat_exo"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 143234 "selectionDesExerciceNonRealisées"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 143618 "addResulat"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    classinstance 142466 ""
+      type class_ref 142338 // Resultat_exo
+      attributes
+        end
+      relations
+        end
+    end
+
+    class 142466 "ProfilCognitif"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 143746 "updateProfilCognitif"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    classinstance 142594 ""
+      type class_ref 142466 // ProfilCognitif
+      attributes
+        end
+      relations
+        end
+    end
+
+    class 142594 "Planning_user"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 142850 "miseAJourDesCreneauDispo()"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    classinstance 142722 ""
+      type class_ref 142594 // Planning_user
       attributes
         end
       relations

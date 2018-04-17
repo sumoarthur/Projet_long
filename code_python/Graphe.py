@@ -187,7 +187,6 @@ class Graphe :
         self.parcours=[]
         self.parcour_avec_exo =[]
 
-
     def duration_parcours(self):
 
         temps_parcours=0
@@ -199,7 +198,6 @@ class Graphe :
         for i in self.parcour_avec_exo :
             temps_parcours_avec_exo += i.duree
         return temps_parcours,temps_parcours_avec_exo
-
 
     def view_graphe(self):
         self.graphe.view()

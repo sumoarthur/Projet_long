@@ -2,7 +2,7 @@ window_sizes 1855 1028 434 1415 871 104
 cleanlooks_style
 diagrams
   active  sequencediagram_ref 134530 // conection_end_new_lecture
-    1415 871 69 A1 0 0
+    1415 871 69 A1 876 0
 end
 show_stereotypes
 selected sequencediagram_ref 134530 // conection_end_new_lecture
