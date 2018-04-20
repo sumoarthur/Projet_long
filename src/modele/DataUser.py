@@ -58,10 +58,14 @@ class PlanningUser:
                 l+=[kk]
 
         if len(self.planning_user)>0:
-            print(self.planning_user.keys())
-            print(sorted(self.planning_user.keys(), key=lambda t: int(t[2])))
             for key in sorted(self.planning_user.keys(), key=lambda t: int(t[2])):  # Ne pas oublié de trié les creneau horaire dans l'ordre
                 self.planning_user[key]["data"]=l.pop(0).nom
+
+    def getProchain(self):
+        print(self.planning_user)
+        if len(self.planning_user)>0:
+            key=sorted(self.planning_user.keys(), key=lambda t: int(t[2]))  # Ne pas oublié de trié les creneau horaire dans l'ordre
+            return self.planning_user[key[0]]["data"]
 
 
 

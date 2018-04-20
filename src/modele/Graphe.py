@@ -13,6 +13,23 @@ class Graphe:
         self.parcours = []
         self.parcour_avec_exo = []
 
+    def getRessourceFromId(self,id,preference):
+        a = ChargeGraphe(preference)
+        exo=a.getExo()
+        cours=a.getCours()
+
+        print(exo+cours)
+
+        for k in exo+cours:
+            if type(k)==list:
+                for kk in k:
+                    if kk.nom==id:
+                        return kk
+            else:
+                if k.nom==id:
+                    return k
+
+
     def duration_parcours(self):
 
         temps_parcours = 0

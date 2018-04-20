@@ -16,29 +16,29 @@ class GenerationData:
         import string
         L_L_exo = [[] for k in range(16)]
 
-        # nom = 'Exo ' + str(0) + '-' + str(0)
-        # niveau = "Debutant"
-        # data1 = "Exercice 1.png"
-        # v1 = Ex_verion(data1, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
-        # L_L_exo[0].append(Exercice(nom, niveau, [v1]))
-        #
-        # nom = 'Exo ' + str(1) + '-' + str(0)
-        # niveau = "Debutant"
-        # data1 = "Exercice 2-1.png"
-        # data2 = "Exercice 2-2.png"
-        # data3 = "Exercice 2-3.png"
-        # v1 = Ex_verion(data1, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
-        # v2 = Ex_verion(data2, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
-        # v3 = Ex_verion(data3, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
-        # L_L_exo[1].append(Exercice(nom, niveau, [v1, v2, v3]))
-        #
-        # nom = 'Exo ' + str(1) + '-' + str(1)
-        # niveau = "Debutant"
-        # data1 = "Exercice 3-1.png"
-        # data2 = "Exercice 3-2.png"
-        # v1 = Ex_verion(data1, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
-        # v2 = Ex_verion(data2, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
-        # L_L_exo[1].append(Exercice(nom, niveau, [v1, v2]))
+        nom = 'Exo ' + str(0) + '-' + str(0)
+        niveau = "Debutant"
+        data1 = "Exercice 1.png"
+        v1 = Ex_verion(data1, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
+        L_L_exo[0].append(Exercice(nom, niveau, [v1]))
+
+        nom = 'Exo ' + str(1) + '-' + str(0)
+        niveau = "Debutant"
+        data1 = "Exercice 2-1.png"
+        data2 = "Exercice 2-2.png"
+        data3 = "Exercice 2-3.png"
+        v1 = Ex_verion(data1, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
+        v2 = Ex_verion(data2, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
+        v3 = Ex_verion(data3, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
+        L_L_exo[1].append(Exercice(nom, niveau, [v1, v2, v3]))
+
+        nom = 'Exo ' + str(1) + '-' + str(1)
+        niveau = "Debutant"
+        data1 = "Exercice 3-1.png"
+        data2 = "Exercice 3-2.png"
+        v1 = Ex_verion(data1, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
+        v2 = Ex_verion(data2, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
+        L_L_exo[1].append(Exercice(nom, niveau, [v1, v2]))
 
         for k in range(1, len(L_L_exo)):
 
@@ -185,6 +185,47 @@ class GenerationData:
                                                                            (Trouver_une_valeur_max_ou_min)))),
                      (Application_de_la_derivee,
                       (Theoreme_croissance_n_decroissance, (Trouver_une_valeur_max_ou_min))))))))))))
+
+        N_L_L_cours=[]
+
+        N_L_L_cours += [Cours("Taux\nd accroissement\n- Definition", "Debutant", L_L_cours[1],
+                                                L_L_exo[1])]
+        N_L_L_cours += [Cours("Taux\nd accroissement  \nInterpretation\ngraphique",
+                                                              "Debutant", L_L_cours[2], L_L_exo[2])]
+        N_L_L_cours += [Cours("Nombre derive -\nDefinition", "Debutant", L_L_cours[3], L_L_exo[3])]
+        N_L_L_cours += [Cours("Tangente  \nDefinition", "Intermediaire", L_L_cours[4], L_L_exo[4])]
+        N_L_L_cours += [Cours("Tangente  \nCoefficient\ndirecteur", "Intermediaire", L_L_cours[5],
+                                               L_L_exo[5])]
+        N_L_L_cours += [Cours("Tangente  \nEquation", "Avance", L_L_cours[6], L_L_exo[6])]
+        N_L_L_cours += [Cours("Tangente  \nEquation -\nDemonstration", "Avance", L_L_cours[7],
+                                                L_L_exo[7])]
+        N_L_L_cours += [Cours("Fonction derivee\n- Definition", "Debutant", L_L_cours[8], L_L_exo[8])]
+        N_L_L_cours += [Cours("Fonctions\nderivees usuelles", "Debutant", L_L_cours[9], L_L_exo[9])]
+        N_L_L_cours += [Cours("Derivation de somme\nou difference de\nfonctions",
+                                                               "Debutant", L_L_cours[10], L_L_exo[10])]
+        N_L_L_cours += [Cours("Derivation de\nproduit de fonctions", "Intermediaire",
+                                                   L_L_cours[11], L_L_exo[11])]
+        N_L_L_cours += [Cours("Derivation de\nquotient de fonctions", "Avance", L_L_cours[12],
+                                                    L_L_exo[12])]
+        N_L_L_cours += [Cours("Application de la\nderivee", "Debutant", L_L_cours[13], L_L_exo[13])]
+        N_L_L_cours += [Cours("Theoreme\ncroissance /\ndecroissance", "Debutant", L_L_cours[14],
+                                                   L_L_exo[14])]
+        N_L_L_cours += [Cours("Trouver une valeur\nmax ou min", "Intermediaire", L_L_cours[15],
+                                              L_L_exo[15])]
+        print(L_L_exo)
+        print(N_L_L_cours)
+
+        filename_data = open('/home/quince-art/PycharmProjects/Projet_long/data/Exo.txt', 'wb')
+        pickle.dump(L_L_exo, filename_data)
+        filename_data.close()
+        print("Graphe généré \n\n")
+
+
+        filename_data = open('/home/quince-art/PycharmProjects/Projet_long/data/Cours.txt', 'wb')
+        pickle.dump(N_L_L_cours, filename_data)
+        filename_data.close()
+        print("Graphe généré \n\n")
+
 
         filename_data = open('/home/quince-art/PycharmProjects/Projet_long/data/graphe.txt', 'wb')
         pickle.dump(c, filename_data)

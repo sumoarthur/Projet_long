@@ -10,6 +10,7 @@ class AfficherPlanning :
         self.vue_principale=Tk.Tk()
         self.dic_item_to_date={}
         self.planning_data=panning_data
+        self.next=False
 
     def planning(self):
         global a
@@ -83,6 +84,8 @@ class AfficherPlanning :
 
         button = Tk.Button(f1, text="click", command=partial(self.update_item,
                                                              canvas, rectangle_id))
+        button2 = Tk.Button(f1, text="faire", command=self.doExercice)
+
         image = Image.open("/home/quince-art/PycharmProjects/Projet_long/data/" + "visage.png")
         photo = ImageTk.PhotoImage(image)
 
@@ -96,12 +99,15 @@ class AfficherPlanning :
 
         canvas2.grid(row=1, column=0)
         button.grid(row=2, column=0)
+        button2.grid(row=3, column=0)
         f1.grid(row=1, column=0)
 
         if len(self.planning_data)>0:
             for k in self.planning_data.keys():
                 canvas.itemconfig(int(self.dic_item_to_date[k]['id'][1]), text=self.planning_data[k]['data'])
                 canvas.itemconfig(int(self.dic_item_to_date[k]['id'][0]), fill='yellowgreen')
+
+
 
         root.mainloop()
 
@@ -127,6 +133,13 @@ class AfficherPlanning :
             except:
                 print('pb')
         print("L_dipso", L_dipso)
+
+    def doExercice(self):
+        self.vue_principale.destroy()
+        self.next=True
+
+        pass
+
 
     def update_item(self, canvas, item_id):
         global matiere, notion, niveau
