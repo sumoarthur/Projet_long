@@ -149,6 +149,11 @@ def planning(root,session):
     f1.grid(row=1, column=0)
 
 
+    for k in range(len(L_dipso)):
+        canvas.itemconfig(L_dipso[k]+1, text='')
+
+
+
     root.mainloop()
 
 

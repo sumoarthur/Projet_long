@@ -186,14 +186,6 @@ def update_item(canvas, item_id):
 
 
 
-
-
-
-
-
-
-
-
 def planning(root):
     global a
     global courant

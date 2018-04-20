@@ -1,12 +1,17 @@
-window_sizes 1855 1028 434 1415 871 104
+window_sizes 1855 1056 434 1415 899 104
 cleanlooks_style
 diagrams
   active  sequencediagram_ref 134530 // conection_end_new_lecture
-    1415 871 69 A1 876 0
+    1415 871 69 A1 0 243
 end
 show_stereotypes
-selected sequencediagram_ref 134530 // conection_end_new_lecture
+selected class_ref 134658 // Controleur
 open
-  usecaseview_ref 134530 // Sequence_dia
+  class_ref 134658 // Controleur
+  class_ref 135426 // Vue_planning
+  class_ref 142210 // Preference
+  class_ref 142338 // Resultat_exo
+  class_ref 142466 // ProfilCognitif
+  class_ref 142594 // Planning_user
 end
 end

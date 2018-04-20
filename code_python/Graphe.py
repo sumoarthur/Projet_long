@@ -1,15 +1,15 @@
-import random
-import string
 
-from code_python.structure_data import *
+
+
 
 from code_python.arbre import *
-
+from code_python.structure_data import *
 
 class Graphe :
 
     def __init__(self):
-
+        import random
+        import string
 
         ############
         L_L_exo = [[] for k in range(16)]
