@@ -7,28 +7,24 @@ class Graphe:
 
 
     def __init__(self,preference):
-
         a=ChargeGraphe(preference)
         self.graphe=a.get_arbre()
         self.parcours = []
         self.parcour_avec_exo = []
 
-    def getRessourceFromId(self,id,preference):
+    def getTypeRessourceFromId(self,id,preference):   #TODO not here please
         a = ChargeGraphe(preference)
         exo=a.getExo()
         cours=a.getCours()
-
-        print(exo+cours)
-
-        for k in exo+cours:
+        for k in exo:
             if type(k)==list:
                 for kk in k:
                     if kk.nom==id:
-                        return kk
-            else:
-                if k.nom==id:
-                    return k
+                        return {"type":"Exercice","id":kk.nom }
 
+        for k in cours:
+                if k.nom==id:
+                    return {"type":"Cours","id":k.nom }
 
     def duration_parcours(self):
 
@@ -162,9 +158,11 @@ class Graphe:
             L_parcours.pop()
 
         L_parcours_notion_Non_Matrisé=graphe_de_connaissance.selectionDesNotionNonMaitrise(L_parcours)
+
+
         self.parcours = L_parcours_notion_Non_Matrisé
 
-    def defintion_exercice(self, niveau_s, opti,res_exo):
+    def defintion_exercice(self, niveau_s, opti,res_exo,res_lecon):
 
         #if opti==    #TODO conversion de l entre apti
 
@@ -192,10 +190,10 @@ class Graphe:
 
                         else:
                             L_exo_selec += [kk]
+                L_exo_selec=[["Exercice",k.nom] for k in L_exo_selec]
+                L_parcour_avec_exo += [["Cours",k.nom]] + L_exo_selec
 
-                L_parcour_avec_exo += [k] + L_exo_selec
 
-            self.parcour_avec_exo = L_parcour_avec_exo
 
         elif opti == "date_limite":
 
@@ -311,12 +309,18 @@ class Graphe:
 
 
 
-                self.parcour_avec_exo = L_parcour_avec_exo
-
 
             else:
                 print("Le temps critique est de " + str(
                     2 * taille_min) + " le parcours ne peut pas etre determiner si le temps disponible est inferieur au temps critique")
+
+
+        l=[]
+        for k in L_parcour_avec_exo:
+            if res_lecon.leconNonVue(k[1]):
+                l+=[k]
+
+        self.parcour_avec_exo = l
 
     def update_resu(self, ):
         pass

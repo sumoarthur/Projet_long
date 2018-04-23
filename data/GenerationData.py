@@ -40,7 +40,7 @@ class GenerationData:
         v2 = Ex_verion(data2, random.randint(0, 2) / 2, random.randint(0, 2) / 2)
         L_L_exo[1].append(Exercice(nom, niveau, [v1, v2]))
 
-        for k in range(1, len(L_L_exo)):
+        for k in range(2, len(L_L_exo)):
 
             nom = 'Exo ' + str(k) + '-' + str(0)
             niveau = "Debutant"
@@ -214,6 +214,9 @@ class GenerationData:
                                               L_L_exo[15])]
         print(L_L_exo)
         print(N_L_L_cours)
+
+
+
 
         filename_data = open('/home/quince-art/PycharmProjects/Projet_long/data/Exo.txt', 'wb')
         pickle.dump(L_L_exo, filename_data)

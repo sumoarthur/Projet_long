@@ -32,6 +32,13 @@ class Exercice:
         self.nom=nom
         self.niveau=niveau
         self.version=version
+        self.reponse=["Reponse "+str(k) for k in range(randrange(4,8))]
+        self.bonne_reponse=[False for k in self.reponse]
+        l=[]
+        for k in range(int(len(self.reponse)/3)):
+            a=randint(0,len(self.reponse)-1)
+            self.bonne_reponse[a]=True
+        print(self.bonne_reponse)
         self.duree=randrange(5,30,5)
         self.score=random()
 

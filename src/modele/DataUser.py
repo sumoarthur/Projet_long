@@ -1,6 +1,6 @@
 import datetime
 from src.modele.StructureData import *
-
+from src.modele.ChargeGraphe import ChargeGraphe
 
 
 class GrapheDeConnaissance:
@@ -56,10 +56,12 @@ class PlanningUser:
         for k in L_L_exo:
             for kk in k:
                 l+=[kk]
-
         if len(self.planning_user)>0:
             for key in sorted(self.planning_user.keys(), key=lambda t: int(t[2])):  # Ne pas oublié de trié les creneau horaire dans l'ordre
-                self.planning_user[key]["data"]=l.pop(0).nom
+                aer=l.pop(0)
+                self.planning_user[key]["data"]={"type":aer[0],"id":aer[1]}
+
+        print(self.planning_user)
 
     def getProchain(self):
         print(self.planning_user)
@@ -73,7 +75,30 @@ class PlanningUser:
 
 
 
+class LeconVu:
 
+    def __init__(self):
+        self.lecon_vu={}
+
+    def addLeconVu(self,lecon):
+        if len(self.lecon_vu) > 0:
+            if lecon not in self.lecon_vu.keys():
+                self.lecon_vu.update({lecon: {"Date": str(datetime.datetime.now()).split('.')[0],"statut":"vu"}})
+
+        else:
+            self.lecon_vu.update({lecon: {"Date": str(datetime.datetime.now()).split('.')[0],"statut":"vu"}})
+
+    def leconNonVue(self,lecon):
+        if len(self.lecon_vu)>0:
+            if lecon in self.lecon_vu.keys():
+                print(False)
+                return False
+            else:
+                return True
+                print("True1")
+        else:
+            return True
+            print("True2")
 
 
 
@@ -133,6 +158,32 @@ class ResultatExo:
         else:
             return True
             print("True2")
+
+    def correctionExercice(self,exercice,reponse,preference):
+        abe = ChargeGraphe(preference)
+        L_exo=abe.getExo()
+        pL_exo=[]
+        for k in L_exo:
+            for kk in k:
+                pL_exo+=[kk]
+
+        ct=0
+        correction={}
+        for k in pL_exo:
+            print(k.nom)
+            if k.nom==exercice:
+                print(k.nom)
+                for rep in range(len(reponse)):
+                    print(reponse,k.bonne_reponse)
+                    if reponse[rep] == k.bonne_reponse[rep]:
+                        ct+=1
+                        correction.update({"Réponse"+str(rep):{"etat":"correcte","color":"green"}})
+                    else:
+                        correction.update({"Réponse"+str(rep):{"etat":"incorrecte","color":"red"}})
+        correction.update({"Score":str(20*ct/len(reponse))})
+        return correction
+
+
 
 
 

@@ -104,7 +104,7 @@ class AfficherPlanning :
 
         if len(self.planning_data)>0:
             for k in self.planning_data.keys():
-                canvas.itemconfig(int(self.dic_item_to_date[k]['id'][1]), text=self.planning_data[k]['data'])
+                canvas.itemconfig(int(self.dic_item_to_date[k]['id'][1]), text=self.planning_data[k]['data']["type"]+": "+self.planning_data[k]['data']["id"])
                 canvas.itemconfig(int(self.dic_item_to_date[k]['id'][0]), fill='yellowgreen')
 
 
@@ -244,7 +244,8 @@ class AfficherPlanning :
         opti='normal'  #TODO selecteur d'optimisation
         statu="EnCours"
 
-        self.demande = (self.planning_data,(matiere, notion, niveau,statu,opti))
+
+        self.demande ={"nv_planning": self.planning_data, "matiere":matiere,"notion":notion,"niveau":niveau,"statu":statu,"opti":opti}
 
 
 

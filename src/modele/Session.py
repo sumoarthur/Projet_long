@@ -16,11 +16,12 @@ class Session:
         self.preference=Preference()
         self.resultat_exo=ResultatExo()
         self.profil_cognitif=ProfilCognitif()
+        self.lecon_vu=LeconVu()
         self.graphe=None
 
 
     def demandeDePlanning(self,preference):
-
+        print("merde")
         self.graphe=Graphe(self.preference)
 
 
